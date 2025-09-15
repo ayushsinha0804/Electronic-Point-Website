@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Electronic Point</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <h1 class="logo">Electronic Point</h1>
+      <nav class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#customers">Customers</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <!-- Dark Mode Toggle Switch -->
+        <div class="switch">
+          <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+          </label>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Welcome to Electronic Point</h2>
+      <p>Empowering nation</p>
+      <a href="#about" class="btn">Know More</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>Electronic Point is a trusted name in industrial electronics repair with over 35 years of experience. Based in Jamshedpur, we specialize in repairing drives, automation systems, and electronic components for various industries.</p>
+    </div>
+  </section>
+
+  <!-- Customers Section -->
+  <section class="customers" id="customers">
+    <div class="container">
+      <h2>Some of Our Prominent Customers</h2>
+      <div class="customer-grid">
+        <div class="customer-card" data-label="Beekay Steel Industries"><img src="beekay.png" alt="Beekay Steel Industries"></div>
+        <div class="customer-card" data-label="Tata Steel Limited"><img src="tsl.png" alt="Tata Steel Limited"></div>
+        <div class="customer-card" data-label="BISCO"><img src="bisco.png" alt="BISCO"></div>
+        <div class="customer-card" data-label="Brahmaputra Metallics"><img src="bml.png" alt="Brahmaputra Metallics"></div>
+        <div class="customer-card" data-label="ISWP"><img src="iswp.png" alt="ISWP"></div>
+        <div class="customer-card" data-label="SSWL"><img src="sswl.png" alt="SSWL"></div>
+        <div class="customer-card" data-label="Brakes India"><img src="brakes.png" alt="Brakes India"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <p>&copy; 2025 Electronic Point | All rights reserved</p>
+      <p>Contact: support@electronicpoint.com | +91-XXXXXXXXXX</p>
+    </div>
+  </footer>
+
+  <!-- Dark Mode JS -->
+  <script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+      document.documentElement.setAttribute('data-theme', currentTheme);
+      if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+      }
+    }
+
+    toggleSwitch.addEventListener('change', function (e) {
+      if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
+</body>
+</html>
