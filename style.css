@@ -1,3 +1,4 @@
+/* Variables */
 :root {
   --bg-color: #fefefe;
   --font-color: #0f0f0f;
@@ -133,7 +134,7 @@ input:checked + .slider:before {
   transform: translateX(20px);
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
   background: var(--section-dark);
   padding: 4rem 1rem;
@@ -165,7 +166,7 @@ input:checked + .slider:before {
   background: #0056b3;
 }
 
-/* About Section */
+/* About */
 .about {
   padding: 3rem 1rem;
   background: var(--section-light);
@@ -183,7 +184,7 @@ input:checked + .slider:before {
   margin: auto;
 }
 
-/* Customers Section */
+/* Customers */
 .customers {
   padding: 3rem 1rem;
   background: var(--bg-color);
@@ -207,6 +208,7 @@ input:checked + .slider:before {
 }
 
 .customer-card {
+  position: relative;
   width: 120px;
   height: 80px;
   display: flex;
@@ -216,7 +218,6 @@ input:checked + .slider:before {
   padding: 1rem;
   border-radius: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  position: relative;
 }
 
 .customer-card img {
@@ -231,7 +232,6 @@ input:checked + .slider:before {
   filter: grayscale(0%) opacity(1);
 }
 
-/* Hover Tooltip */
 .customer-card::before {
   content: attr(data-label);
   position: absolute;
@@ -253,6 +253,64 @@ input:checked + .slider:before {
 .customer-card:hover::before {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+/* Team Section */
+.team {
+  padding: 3rem 1rem;
+  background: var(--section-light);
+  text-align: center;
+}
+
+.team h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--accent-color);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.team-member {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 1rem;
+  max-width: 220px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+}
+
+.team-member img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  background-color: white;
+}
+
+.team-member img:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.team-member h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+}
+
+.team-member p {
+  font-size: 0.9rem;
+  color: var(--font-color);
+  opacity: 0.85;
 }
 
 /* Footer */
@@ -286,11 +344,14 @@ input:checked + .slider:before {
     font-size: 1rem;
   }
 
-  .about h2 {
+  .about h2,
+  .customers h2,
+  .team h2 {
     font-size: 1.6rem;
   }
 
-  .about p {
+  .about p,
+  .team-member p {
     font-size: 1rem;
   }
 }
@@ -310,14 +371,6 @@ input:checked + .slider:before {
 
   .btn {
     padding: 0.6rem 1.2rem;
-    font-size: 0.95rem;
-  }
-
-  .about h2 {
-    font-size: 1.4rem;
-  }
-
-  .about p {
     font-size: 0.95rem;
   }
 
