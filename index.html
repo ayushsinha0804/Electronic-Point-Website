@@ -68,20 +68,20 @@
       </div>
     </div>
   </div>
-</section>
+  </section>
 
   <!-- Customers Section -->
   <section class="customers" id="customers">
     <div class="container">
       <h2>Some of Our Prominent Customers</h2>
       <div class="customer-grid">
-        <div class="customer-card" data-label="Beekay Steel Industries"><img src="beekay.png" alt="Beekay Steel Industries"></div>
-        <div class="customer-card" data-label="Tata Steel Limited"><img src="tsl.png" alt="Tata Steel Limited"></div>
-        <div class="customer-card" data-label="BISCO"><img src="bisco.png" alt="BISCO"></div>
-        <div class="customer-card" data-label="Brahmaputra Metallics"><img src="bml.png" alt="Brahmaputra Metallics"></div>
-        <div class="customer-card" data-label="ISWP"><img src="iswp.png" alt="ISWP"></div>
-        <div class="customer-card" data-label="SSWL"><img src="sswl.png" alt="SSWL"></div>
-        <div class="customer-card" data-label="Brakes India"><img src="brakes.png" alt="Brakes India"></div>
+        <div class="customer-card"><img src="beekay.png" alt="Beekay Steel Industries Limited"></div>
+        <div class="customer-card"><img src="tsl.png" alt="Tata Steel Limited"></div>
+        <div class="customer-card"><img src="bisco.png" alt="BISCO"></div>
+        <div class="customer-card"><img src="bml.png" alt="Brahmaputra Metallics Limited"></div>
+        <div class="customer-card"><img src="iswp.png" alt="Linde India"></div>
+        <div class="customer-card"><img src="sswl.png" alt="UCIL"></div>
+        <div class="customer-card"><img src="brakes.png" alt="Tata Tinplate"></div>
       </div>
     </div>
   </section>
@@ -100,24 +100,22 @@
     const currentTheme = localStorage.getItem('theme');
 
     if (currentTheme) {
-      document.documentElement.setAttribute('data-theme', currentTheme);
-      if (currentTheme === 'dark') {
-        toggleSwitch.checked = true;
-      }
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+            toggleSwitch.checked = true;
+        }
     }
 
     toggleSwitch.addEventListener('change', function (e) {
-      if (e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-      }
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }
     });
   </script>
 </body>
 </html>
-
-
 
