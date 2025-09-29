@@ -12,12 +12,15 @@
   <header class="navbar">
     <div class="container nav-container">
       <h1 class="logo">Electronic Point</h1>
-      <nav class="nav-right">
+
+      <nav class="nav-right" id="nav-right">
         <ul class="nav-links">
           <li><a href="#">Home</a></li>
           <li><a href="#about">About Us</a></li>
+          <li><a href="#team">Our Team</a></li>
           <li><a href="#customers">Customers</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="news.html">News</a></li> <!-- ✅ Added -->
+          <li><a href="contact.html">Contact</a></li>
         </ul>
         <!-- Dark Mode Toggle Switch -->
         <div class="switch">
@@ -31,7 +34,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero fade-in">
     <div class="hero-content">
       <h2>Welcome to Electronic Point</h2>
       <p>Empowering nation</p>
@@ -40,82 +43,103 @@
   </section>
 
   <!-- About Section -->
-  <section class="about" id="about">
+  <section class="about fade-in" id="about">
     <div class="container">
       <h2>About Us</h2>
       <p>Electronic Point is a trusted name in industrial electronics repair with over 35 years of experience. Based in Jamshedpur, we specialize in repairing drives, automation systems, and electronic components for various industries.</p>
     </div>
   </section>
 
-  <section class="team" id="team">
-  <div>
-    <h2>Our Team</h2>
-    <div class="team-grid">
-      <div class="team-member">
-        <img src="blank.webp" alt="Team Member 1">
-        <h3>Rakesh Kumar</h3>
-        <p>Partner</p>
-      </div>
-      <div class="team-member">
-        <img src="blank.webp" alt="Team Member 2">
-        <h3>Bhanu Pratap Janguar</h3>
-        <p>Partner</p>
-      </div>
-      <div class="team-member">
-        <img src="blank.webp" alt="Team Member 3">
-        <h3>Vijay Kumar Ojha</h3>
-        <p>Mentor</p>
+  <!-- Team Section -->
+  <section class="team fade-in" id="team">
+    <div class="container">
+      <h2>Meet Our Team</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="images/blank.webp" alt="Rahul Sharma - Founder & CEO">
+          <h3>Rahul Sharma</h3>
+          <p>Founder & CEO</p>
+        </div>
+        <div class="team-card">
+          <img src="images/blank.webp" alt="Anita Singh - Operations Head">
+          <h3>Anita Singh</h3>
+          <p>Operations Head</p>
+        </div>
+        <div class="team-card">
+          <img src="images/blank.webp" alt="Vikram Patel - Technical Lead">
+          <h3>Vikram Patel</h3>
+          <p>Technical Lead</p>
+        </div>
       </div>
     </div>
-  </div>
   </section>
 
   <!-- Customers Section -->
-  <section class="customers" id="customers">
+  <section class="customers fade-in" id="customers">
     <div class="container">
       <h2>Some of Our Prominent Customers</h2>
       <div class="customer-grid">
-        <div class="customer-card"><img src="beekay.png" alt="Beekay Steel Industries Limited"></div>
-        <div class="customer-card"><img src="tsl.png" alt="Tata Steel Limited"></div>
-        <div class="customer-card"><img src="bisco.png" alt="BISCO"></div>
-        <div class="customer-card"><img src="bml.png" alt="Brahmaputra Metallics Limited"></div>
-        <div class="customer-card"><img src="iswp.png" alt="Linde India"></div>
-        <div class="customer-card"><img src="sswl.png" alt="UCIL"></div>
-        <div class="customer-card"><img src="brakes.png" alt="Tata Tinplate"></div>
+        <div class="customer-card"><img src="images/beekay.png" alt="Beekay Steel Industries Limited"></div>
+        <div class="customer-card"><img src="images/tsl.png" alt="Tata Steel Limited"></div>
+        <div class="customer-card"><img src="images/bisco.png" alt="BISCO"></div>
+        <div class="customer-card"><img src="images/bml.png" alt="Brahmaputra Metallics Limited"></div>
+        <div class="customer-card"><img src="images/iswp.png" alt="Linde India"></div>
+        <div class="customer-card"><img src="images/sswl.png" alt="UCIL"></div>
+        <div class="customer-card"><img src="images/brakes.png" alt="Tata Tinplate"></div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer" id="contact">
+  <footer class="footer fade-in" id="contact">
     <div class="container">
       <p>&copy; 2025 Electronic Point | All rights reserved</p>
-      <p>Contact: support@electronicpoint.com | +91-XXXXXXXXXX</p>
+      <p>Contact: support@electronicpoint.com | +91-9608209933</p>
     </div>
   </footer>
 
-  <!-- Dark Mode JS -->
+  <!-- JavaScript -->
   <script>
+    // Dark mode toggle
     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
     const currentTheme = localStorage.getItem('theme');
 
     if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'dark') {
-            toggleSwitch.checked = true;
-        }
+      document.documentElement.setAttribute('data-theme', currentTheme);
+      if (currentTheme === 'dark') toggleSwitch.checked = true;
     }
 
-    toggleSwitch.addEventListener('change', function (e) {
-        if (e.target.checked) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
+    toggleSwitch.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          obs.unobserve(entry.target);
         }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.fade-in, .team-card, .customer-card').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navRight = document.getElementById('nav-right');
+
+    hamburger.addEventListener('click', () => {
+      navRight.classList.toggle('active');
     });
   </script>
 </body>
 </html>
-
