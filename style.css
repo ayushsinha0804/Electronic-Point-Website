@@ -1,4 +1,6 @@
-/* === Root Variables === */
+/* =====================
+   Root Variables
+====================== */
 :root {
   --bg-color: #fefefe;
   --font-color: #0f0f0f;
@@ -15,23 +17,25 @@
   --font-color: #fefefe;
   --accent-color: #66ccff;
   --section-light: #181818;
-  --section-dark: #1a1a1a;
+  --section-dark: #1f1f1f;
   --footer-bg: #000;
   --footer-text: #ccc;
   --card-bg: #2a2a2a;
 }
 
-/* === Reset and Base === */
+/* =====================
+   Global Styles
+====================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  background-color: var(--bg-color);
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg-color);
   color: var(--font-color);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
 }
 
@@ -41,18 +45,32 @@ html, body {
   margin: auto;
 }
 
-/* === Navbar === */
+h1, h2, h3 {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+/* =====================
+   Navbar
+====================== */
 .navbar {
   background: var(--bg-color);
   padding: 1rem 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ccc;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .nav-right {
@@ -61,41 +79,30 @@ html, body {
   gap: 1.5rem;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--accent-color);
-}
-
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .nav-links a {
   text-decoration: none;
   color: var(--font-color);
-  font-weight: 500;
+  transition: color 0.3s;
 }
 
 .nav-links a:hover {
   color: var(--accent-color);
 }
 
-/* === Toggle Switch === */
-.switch {
-  position: relative;
-  height: auto;
-  margin-left: 1rem;
-}
-
+/* =====================
+   Dark Mode Toggle
+====================== */
 .theme-switch {
   display: inline-block;
-  width: 40px;
   height: 20px;
   position: relative;
+  width: 40px;
 }
 
 .theme-switch input {
@@ -104,69 +111,70 @@ html, body {
 
 .slider {
   background-color: #ccc;
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
   bottom: 0;
-  transition: 0.4s;
-  border-radius: 20px;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+  border-radius: 34px;
 }
 
 .slider:before {
-  position: absolute;
+  background-color: #fff;
+  bottom: 2px;
   content: "";
   height: 16px;
-  width: 16px;
   left: 2px;
-  bottom: 2px;
-  background-color: white;
-  transition: 0.4s;
+  position: absolute;
+  transition: .4s;
+  width: 16px;
   border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: #2b2b2b;
+  background-color: var(--accent-color);
 }
 
 input:checked + .slider:before {
   transform: translateX(20px);
 }
 
-/* === Hero Section === */
+/* =====================
+   Hero Section
+====================== */
 .hero {
+  height: 60vh;
   background: var(--section-dark);
-  padding: 4rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.hero h2 {
+.hero-content h2 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--accent-color);
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
 }
 
 .btn {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
   background: var(--accent-color);
-  color: white;
-  border-radius: 5px;
+  color: #fff;
   text-decoration: none;
-  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.3s;
 }
 
 .btn:hover {
   background: #0056b3;
 }
 
-/* === About Section === */
+/* =====================
+   About Section
+====================== */
 .about {
   padding: 3rem 1rem;
   background: var(--section-light);
@@ -184,65 +192,6 @@ input:checked + .slider:before {
   margin: auto;
 }
 
-/* Team Section */
-.team {
-  padding: 3rem 1rem;
-  background: var(--section-light);
-  text-align: center;
-}
-
-.team h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: var(--accent-color);
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  justify-items: center;
-}
-
-.team-member {
-  background: var(--card-bg);
-  border-radius: 10px;
-  padding: 1rem;
-  max-width: 220px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease;
-}
-
-.team-member:hover {
-  transform: translateY(-5px);
-}
-
-.team-member img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-  background-color: white;
-}
-
-.team-member img:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-
-.team-member h3 {
-  margin-bottom: 0.25rem;
-  font-size: 1.1rem;
-}
-
-.team-member p {
-  font-size: 0.9rem;
-  color: var(--font-color);
-  opacity: 0.85;
-}
-
-/* === Customers Section === */
 .customers {
   padding: 3rem 1rem;
   background: var(--bg-color);
@@ -257,7 +206,7 @@ input:checked + .slider:before {
 
 .customer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1.5rem;
   max-width: 1000px;
   margin: auto;
@@ -267,9 +216,8 @@ input:checked + .slider:before {
 }
 
 .customer-card {
-  width: 100%;
-  max-width: 140px;
-  height: 100px;
+  width: 140px;           /* fixed uniform width */
+  height: 100px;          /* fixed uniform height */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -282,96 +230,101 @@ input:checked + .slider:before {
 
 .customer-card:hover {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  transform: scale(1.3);
+  transform: scale(1.5);
   z-index: 1;
 }
 
 .customer-grid:hover .customer-card:not(:hover) {
-  transform: scale(0.9);
+  transform: scale(0.8);
   opacity: 0.7;
 }
 
 .customer-card img {
-  max-width: 100%;
-  max-height: 100%;
-  height: auto;
-  width: auto;
-  object-fit: contain;
-  transition: transform 0.4s ease;
+  width: 100%;            /* always fill card width */
+  height: 100%;           /* always fill card height */
+  object-fit: contain;    /* keeps aspect ratio inside card */
   display: block;
-  margin: auto;
+  transition: transform 0.1s ease;
 }
 
 .customer-card img:hover {
   transform: scale(1.1);
 }
-/* === Footer === */
+
+/* =====================
+   Team Section
+====================== */
+.team {
+  background: var(--section-light);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.team-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.team-card {
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+}
+
+.team-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+/* =====================
+   Footer
+====================== */
 .footer {
   background: var(--footer-bg);
   color: var(--footer-text);
+  padding: 2rem 0;
   text-align: center;
-  padding: 2rem 1rem;
-  font-size: 0.9rem;
 }
 
-/* === Responsive === */
-@media (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-right {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .hero h2 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .about h2 {
-    font-size: 1.6rem;
-  }
-
-  .about p {
-    font-size: 1rem;
-  }
+/* =====================
+   Scroll Animations
+====================== */
+.fade-in,
+.team-card,
+.customer-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-@media (max-width: 480px) {
-  .logo {
-    font-size: 1.25rem;
-  }
-
-  .hero h2 {
-    font-size: 1.5rem;
-  }
-
-  .hero p {
-    font-size: 0.95rem;
-  }
-
-  .btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.95rem;
-  }
-
-  .about h2 {
-    font-size: 1.4rem;
-  }
-
-  .about p {
-    font-size: 0.95rem;
-  }
-
-  .footer {
-    font-size: 0.8rem;
-  }
+.fade-in.show,
+.team-card.show,
+.customer-card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
+
+/* Stagger delays */
+.team-card:nth-child(1).show { transition-delay: 0.1s; }
+.team-card:nth-child(2).show { transition-delay: 0.3s; }
+.team-card:nth-child(3).show { transition-delay: 0.5s; }
+
+.customer-card:nth-child(1).show { transition-delay: 0.1s; }
+.customer-card:nth-child(2).show { transition-delay: 0.2s; }
+.customer-card:nth-child(3).show { transition-delay: 0.3s; }
+.customer-card:nth-child(4).show { transition-delay: 0.4s; }
+.customer-card:nth-child(5).show { transition-delay: 0.5s; }
+.customer-card:nth-child(6).show { transition-delay: 0.6s; }
+.customer-card:nth-child(7).show { transition-delay: 0.7s; }
