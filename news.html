@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electronics News | Electronic Point</title>
+  <link rel="stylesheet" href="newsstyle.css">
+  <style>
+    .news-container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 2rem auto;
+    }
+    .news-container h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--accent-color);
+    }
+    .news-article {
+      background: var(--card-bg);
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .news-article:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .news-article h3 {
+      margin-bottom: 0.5rem;
+      color: var(--accent-color);
+      font-size: 1.2rem;
+    }
+    .news-article a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .news-article p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      margin: 0.5rem 0;
+    }
+    .news-article small {
+      display: block;
+      margin-top: 0.5rem;
+      color: gray;
+      font-size: 0.8rem;
+    }
+    .news-article img {
+      max-width: 100%;
+      border-radius: 6px;
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <h1 class="logo">Electronic Point</h1>
+      <nav class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#team">Our Team</a></li>
+          <li><a href="index.html#customers">Customers</a></li>
+          <li><a href="news.html" class="active">News</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- News Section -->
+  <section class="news-container">
+    <h2>Latest in Electronics</h2>
+    <div id="news">
+      <p>Loading news...</p>
+    </div>
+  </section>
+
+  <script>
+    // Use your own API key here instead of "demo"
+    const apiKey = "ccd3d00b02369abe1f326122f5c32691"; // ⚠️ Replace with your personal gnews.io key
+    const url = `https://gnews.io/api/v4/search?q=electronics+OR+software+OR+technology+OR+hardware&lang=en&country=in&max=10&apikey=${apiKey}`;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const newsContainer = document.getElementById("news");
+        newsContainer.innerHTML = ""; // clear loading text
+        if (data.articles && data.articles.length > 0) {
+          data.articles.forEach(article => {
+            const div = document.createElement("div");
+            div.classList.add("news-article");
+            div.innerHTML = `
+              <a href="${article.url}" target="_blank" rel="noopener noreferrer">
+                <h3>${article.title}</h3>
+              </a>
+              ${article.image ? `<img src="${article.image}" alt="News image">` : ""}
+              <p>${article.description || "No description available."}</p>
+              <small>Source: ${article.source?.name || "Unknown"} | ${new Date(article.publishedAt).toLocaleDateString()}</small>
+            `;
+            newsContainer.appendChild(div);
+          });
+        } else {
+          newsContainer.innerHTML = "<p>⚠️ No news found right now. Try again later.</p>";
+        }
+      })
+      .catch(error => {
+        document.getElementById("news").innerHTML = "<p>⚠️ Failed to load news. Try again later.</p>";
+        console.error("Error fetching news:", error);
+      });
+  </script>
+
+</body>
+</html>
