@@ -4,16 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Electronic Point</title>
+  <meta name="description" content="Electronic Point — industrial electronics repair and automation solutions with 35+ years of experience. Based in Jamshedpur, serving manufacturing leaders across India." />
+  <meta property="og:title" content="Electronic Point" />
+  <meta property="og:description" content="Trusted partner for industrial electronics repair, drive servicing and automation systems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.example/" />
+  <meta property="og:image" content="mukesh_ambani.avif" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="favicon.ico" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Navbar -->
   <header class="navbar">
     <div class="container nav-container">
       <h1 class="logo">Electronic Point</h1>
 
-      <nav class="nav-right" id="nav-right">
+      <button id="hamburger" class="hamburger" aria-label="Open menu" aria-controls="nav-right" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-right" id="nav-right" role="navigation" aria-label="Main navigation">
         <ul class="nav-links">
           <li><a href="#">Home</a></li>
           <li><a href="#about">About Us</a></li>
@@ -36,39 +52,107 @@
   <!-- Hero Section -->
   <section class="hero fade-in">
     <div class="hero-content">
-      <h2>Welcome to Electronic Point</h2>
-      <p>Empowering nation</p>
-      <a href="#about" class="btn">Know More</a>
+      <h2>Powering Industrial Excellence</h2>
+      <p>Over 35 years of trusted electronics repair and automation solutions</p>
+      <a href="#about" class="btn">Discover Our Story</a>
     </div>
   </section>
 
   <!-- About Section -->
   <section class="about fade-in" id="about">
     <div class="container">
-      <h2>About Us</h2>
-      <p>Electronic Point is a trusted name in industrial electronics repair with over 35 years of experience. Based in Jamshedpur, we specialize in repairing drives, automation systems, and electronic components for various industries.</p>
+      <h2>Who We Are</h2>
+      <p>Electronic Point is a pioneer in industrial electronics repair and automation systems. With over three decades of excellence, we've become the trusted partner for India's leading manufacturing facilities.</p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services fade-in" id="services">
+    <div class="container">
+      <h2>What We Do</h2>
+      <p class="section-subtitle">Comprehensive electronics repair and automation solutions for modern industry</p>
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <div class="service-icon">⚙️</div>
+          <h3>Drive Repair</h3>
+          <p>Expert repair and maintenance of industrial drives and motor control systems</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">🤖</div>
+          <h3>Automation Systems</h3>
+          <p>Advanced automation solutions to enhance productivity and efficiency</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">🔧</div>
+          <h3>Component Repair</h3>
+          <p>Precision repair of electronic components and circuit boards</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">📊</div>
+          <h3>Technical Support</h3>
+          <p>Round-the-clock technical assistance for all your industrial needs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="why-us fade-in">
+    <div class="container">
+      <h2>Why Choose Electronic Point</h2>
+      <div class="features-grid">
+        <div class="feature fade-in">
+          <h3>✓ 35+ Years Experience</h3>
+          <p>Decades of proven expertise in industrial electronics</p>
+        </div>
+        <div class="feature fade-in">
+          <h3>✓ Trusted by Industry Leaders</h3>
+          <p>Preferred partner of India's top manufacturing companies</p>
+        </div>
+        <div class="feature fade-in">
+          <h3>✓ Expert Team</h3>
+          <p>Highly skilled technicians and engineers</p>
+        </div>
+        <div class="feature fade-in">
+          <h3>✓ Quick Turnaround</h3>
+          <p>Fast, reliable repair and service delivery</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Team Section -->
   <section class="team fade-in" id="team">
     <div class="container">
-      <h2>Meet Our Team</h2>
+      <h2>Meet Our Leadership</h2>
+      <p class="section-subtitle">A team of seasoned professionals driving innovation</p>
       <div class="team-grid">
         <div class="team-card">
-          <img src="blank.webp" alt="Rahul Sharma - Founder & CEO">
+          <img src="mukesh_ambani.avif" alt="Rahul Sharma - Founder & CEO" loading="lazy">
           <h3>Rahul Sharma</h3>
           <p>Founder & CEO</p>
+          <div class="team-about">
+            <p>Rahul brings over 35 years of hands-on experience repairing and optimising industrial electronics and automation systems. He leads technical strategy and ensures the highest quality of service for our partners.</p>
+          </div>
+          <span class="role-desc">Visionary leader with 35+ years in industrial electronics</span>
         </div>
         <div class="team-card">
-          <img src="blank.webp" alt="Anita Singh - Operations Head">
+          <img src="blank.webp" alt="Anita Singh - Operations Head" loading="lazy">
           <h3>Anita Singh</h3>
           <p>Operations Head</p>
+          <div class="team-about">
+            <p>Anita oversees our operations and logistics, making sure repairs and site deployments happen on time. Her focus on process and communication keeps clients informed and satisfied.</p>
+          </div>
+          <span class="role-desc">Ensuring seamless service delivery and excellence</span>
         </div>
         <div class="team-card">
-          <img src="blank.webp" alt="Vikram Patel - Technical Lead">
+          <img src="blank.webp" alt="Vikram Patel - Technical Lead" loading="lazy">
           <h3>Vikram Patel</h3>
           <p>Technical Lead</p>
+          <div class="team-about">
+            <p>Vikram is our senior engineer specialising in drive systems and PLC-based automation. He leads diagnostics, complex repairs and on-site commissioning.</p>
+          </div>
+          <span class="role-desc">Expert in automation systems and drive technology</span>
         </div>
       </div>
     </div>
@@ -77,15 +161,49 @@
   <!-- Customers Section -->
   <section class="customers fade-in" id="customers">
     <div class="container">
-      <h2>Some of Our Prominent Customers</h2>
+      <h2>Trusted by Industry Leaders</h2>
+      <p class="section-subtitle">Partnering with India's premier manufacturing and industrial companies</p>
       <div class="customer-grid">
-        <div class="customer-card"><img src="beekay.png" alt="Beekay Steel Industries Limited"></div>
-        <div class="customer-card"><img src="tsl.png" alt="Tata Steel Limited"></div>
-        <div class="customer-card"><img src="bisco.png" alt="BISCO"></div>
-        <div class="customer-card"><img src="bml.png" alt="Brahmaputra Metallics Limited"></div>
-        <div class="customer-card"><img src="iswp.png" alt="Linde India"></div>
-        <div class="customer-card"><img src="sswl.png" alt="UCIL"></div>
-        <div class="customer-card"><img src="brakes.png" alt="Tata Tinplate"></div>
+        <div class="customer-card">
+          <img src="beekay.png" alt="Beekay Steel Industries Limited" loading="lazy">
+          <div class="customer-about"><p>Beekay Steel — long-term partner in steel manufacturing equipment maintenance and repair.</p></div>
+        </div>
+        <div class="customer-card">
+          <img src="tsl.png" alt="Tata Steel Limited" loading="lazy">
+          <div class="customer-about"><p>Tata Steel — trusted partner for drive and automation servicing across plants.</p></div>
+        </div>
+        <div class="customer-card">
+          <img src="bisco.png" alt="BISCO" loading="lazy">
+          <div class="customer-about"><p>BISCO — partner for precision electronics repair and component servicing.</p></div>
+        </div>
+        <div class="customer-card">
+          <img src="bml.png" alt="Brahmaputra Metallics Limited" loading="lazy">
+          <div class="customer-about"><p>BML — providing timely maintenance support for critical production lines.</p></div>
+        </div>
+        <div class="customer-card">
+          <img src="iswp.png" alt="Linde India" loading="lazy">
+          <div class="customer-about"><p>Linde India — collaboration on control systems and field support.</p></div>
+        </div>
+        <div class="customer-card">
+          <img src="sswl.png" alt="UCIL" loading="lazy">
+          <div class="customer-about"><p>UCIL — ongoing service agreements for instrumentation and electronics.</p></div>
+        </div>
+        <div class="customer-card">
+          <img src="brakes.png" alt="Tata Tinplate" loading="lazy">
+          <div class="customer-about"><p>Tata Tinplate — rapid-response repair and diagnostics partner.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta fade-in">
+    <div class="container">
+      <h2>Ready to Partner With Us?</h2>
+      <p>Let Electronic Point be your trusted partner for industrial electronics solutions</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+        <a href="news.html" class="btn btn-secondary">Latest Updates</a>
       </div>
     </div>
   </section>
@@ -133,13 +251,25 @@
       observer.observe(el);
     });
 
-    // Hamburger menu toggle
+    // Hamburger menu toggle (accessible)
     const hamburger = document.getElementById('hamburger');
     const navRight = document.getElementById('nav-right');
 
-    hamburger.addEventListener('click', () => {
-      navRight.classList.toggle('active');
-    });
+    if (hamburger && navRight) {
+      hamburger.addEventListener('click', () => {
+        const isOpen = navRight.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      // Close menu with Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navRight.classList.contains('active')) {
+          navRight.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          hamburger.focus();
+        }
+      });
+    }
   </script>
 </body>
 </html>
