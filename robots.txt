@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://electronicpointjsr.com/sitemap.xml
+Sitemap: https://ayushsinha0804.github.io/Electronic-Point-Website/sitemap.xml
