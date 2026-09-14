@@ -1,65 +1,5 @@
-/* Global */
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-  line-height: 1.6;
-  background: var(--bg-color, #ffffff);
-  color: var(--text-color, #1d1d1f);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* Inherits Global & Navbar from style.css */
 
-/* Navbar */
-.navbar {
-  width: 100%;
-  background: var(--card-bg, #ffffff);
-  border-bottom: 1px solid #e5e5e7;
-  padding: 0.75rem 1.2rem;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  backdrop-filter: blur(20px);
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;   /* same width as homepage */
-  margin: 0 auto;      /* centers it */
-  width: 100%;
-  padding: 0 1rem;     /* same side padding */
-}
-
-.logo a {
-  text-decoration: none;
-  color: var(--accent-color, #0071e3);
-  font-weight: 600;
-  font-size: 1.2rem;
-  letter-spacing: -0.01em;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-  flex-wrap: wrap;
-}
-
-.nav-links li a {
-  text-decoration: none;
-  color: var(--text-color, #1d1d1f);
-  font-weight: 500;
-  transition: color 0.3s ease;
-  font-size: 0.95rem;
-}
-
-.nav-links li a:hover,
-.nav-links li a.active {
-  color: var(--accent-color, #0071e3);
-}
 
 /* Contact Section */
 .contact-section {
@@ -124,28 +64,30 @@ body {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: var(--accent-color, #0071e3);
+  border-color: var(--accent-color, #E85427);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.08);
+  box-shadow: 0 0 0 3px rgba(232, 84, 39, 0.1);
 }
 
 .btn-submit {
   width: 100%;
   padding: 0.9rem;
-  background: var(--accent-color, #0071e3);
-  color: #fff;
+  background: var(--accent-yellow, #FFCB0F);
+  color: var(--navy-dark, #002561);
   border: none;
   border-radius: 8px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .btn-submit:hover {
-  background: #0056b3;
+  background: #ffd633;
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 113, 227, 0.15);
+  box-shadow: 0 8px 16px rgba(255, 203, 15, 0.25);
 }
 
 /* Responsive Breakpoints */
@@ -170,6 +112,7 @@ body {
     padding: 0.75rem;
   }
 }
+
 /* Popup Notification */
 .popup {
   position: fixed;
@@ -199,4 +142,3 @@ body {
   background: #dc3545;
   color: #fff;
 }
-

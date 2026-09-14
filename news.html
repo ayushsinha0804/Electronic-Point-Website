@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Electronics News | Electronic Point</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://electronicpointjsr.com/news.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="newsstyle.css">
   <style>
     .news-container {
@@ -11,43 +18,51 @@
       max-width: 1000px;
       margin: 2rem auto;
     }
+
     .news-container h2 {
       text-align: center;
       margin-bottom: 1.5rem;
       color: var(--accent-color);
     }
+
     .news-article {
       background: var(--card-bg);
       padding: 1rem;
       margin-bottom: 1.5rem;
       border-radius: 8px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
+
     .news-article:hover {
       transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
+
     .news-article h3 {
       margin-bottom: 0.5rem;
       color: var(--accent-color);
       font-size: 1.2rem;
     }
+
     .news-article a {
       text-decoration: none;
       color: inherit;
     }
+
     .news-article p {
       font-size: 0.95rem;
       line-height: 1.4;
       margin: 0.5rem 0;
     }
+
     .news-article small {
       display: block;
       margin-top: 0.5rem;
       color: gray;
       font-size: 0.8rem;
     }
+
     .news-article img {
       max-width: 100%;
       border-radius: 6px;
@@ -55,21 +70,36 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Navbar -->
   <header class="navbar">
     <div class="container nav-container">
       <h1 class="logo">Electronic Point</h1>
-      <nav class="nav-right">
+      <button id="hamburger" class="hamburger" aria-label="Open menu" aria-controls="nav-right" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-right" id="nav-right">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#about">About Us</a></li>
-          <li><a href="index.html#team">Our Team</a></li>
-          <li><a href="index.html#customers">Customers</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="clients.html">Clients</a></li>
           <li><a href="news.html" class="active">News</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
+        <!-- Dark Mode Toggle Switch -->
+        <div class="switch">
+          <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+          </label>
+        </div>
       </nav>
     </div>
   </header>
@@ -82,39 +112,60 @@
     </div>
   </section>
 
-  <script>
-    // Use your own API key here instead of "demo"
-    const apiKey = "ccd3d00b02369abe1f326122f5c32691"; // ⚠️ Replace with your personal gnews.io key
-    const url = `https://gnews.io/api/v4/search?q=electronics+OR+software+OR+technology+OR+hardware&lang=en&country=in&max=10&apikey=${apiKey}`;
+  <!-- Footer -->
+  <footer class="footer fade-in">
+    <div class="container">
+      <p><strong>Electronic Point</strong> &middot; Repair. Supply. Trust.</p>
+      <p>Road No. 23, Adityapur-2, Jamshedpur, Jharkhand 831013</p>
+      <p>Email: electronicpointjsr@gmail.com &middot; Phone/WhatsApp: +91 92346 03650</p>
+    </div>
+  </footer>
 
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        const newsContainer = document.getElementById("news");
-        newsContainer.innerHTML = ""; // clear loading text
-        if (data.articles && data.articles.length > 0) {
-          data.articles.forEach(article => {
-            const div = document.createElement("div");
-            div.classList.add("news-article");
-            div.innerHTML = `
-              <a href="${article.url}" target="_blank" rel="noopener noreferrer">
-                <h3>${article.title}</h3>
-              </a>
-              ${article.image ? `<img src="${article.image}" alt="News image">` : ""}
-              <p>${article.description || "No description available."}</p>
-              <small>Source: ${article.source?.name || "Unknown"} | ${new Date(article.publishedAt).toLocaleDateString()}</small>
-            `;
-            newsContainer.appendChild(div);
-          });
-        } else {
-          newsContainer.innerHTML = "<p>⚠️ No news found right now. Try again later.</p>";
-        }
-      })
-      .catch(error => {
-        document.getElementById("news").innerHTML = "<p>⚠️ Failed to load news. Try again later.</p>";
-        console.error("Error fetching news:", error);
-      });
+  <script src="script.js"></script>
+  <script>
+    // This page can show a live electronics news feed via gnews.io's free tier.
+    // Any key placed here is visible to site visitors (it's client-side JavaScript),
+    // so get your own free key at https://gnews.io and be aware it is public once
+    // published — that's expected for a client-only key on gnews.io's free plan,
+    // but never reuse a key you also use for paid/higher-tier access.
+    const NEWS_API_KEY = ""; // <-- add your gnews.io key here to enable the live feed
+    const newsContainer = document.getElementById("news");
+
+    if (!NEWS_API_KEY) {
+      newsContainer.innerHTML =
+        "<p>Our news feed is coming soon. In the meantime, check our <a href=\"index.html#about\">latest updates</a> or " +
+        "<a href=\"contact.html\">get in touch</a> directly.</p>";
+    } else {
+      const url = `https://gnews.io/api/v4/search?q=electronics+OR+automation+OR+industrial&lang=en&country=in&max=10&apikey=${NEWS_API_KEY}`;
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          newsContainer.innerHTML = ""; // clear loading text
+          if (data.articles && data.articles.length > 0) {
+            data.articles.forEach(article => {
+              const div = document.createElement("div");
+              div.classList.add("news-article");
+              div.innerHTML = `
+                <a href="${article.url}" target="_blank" rel="noopener noreferrer">
+                  <h3>${article.title}</h3>
+                </a>
+                ${article.image ? `<img src="${article.image}" alt="News image">` : ""}
+                <p>${article.description || "No description available."}</p>
+                <small>Source: ${article.source?.name || "Unknown"} | ${new Date(article.publishedAt).toLocaleDateString()}</small>
+              `;
+              newsContainer.appendChild(div);
+            });
+          } else {
+            newsContainer.innerHTML = "<p>No news found right now. Try again later.</p>";
+          }
+        })
+        .catch(error => {
+          newsContainer.innerHTML = "<p>Failed to load news. Try again later.</p>";
+          console.error("Error fetching news:", error);
+        });
+    }
   </script>
 
 </body>
+
 </html>
